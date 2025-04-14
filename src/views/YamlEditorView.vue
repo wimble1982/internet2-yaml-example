@@ -3,10 +3,31 @@ import { EditorView, basicSetup } from 'codemirror';
 import { yaml } from '@codemirror/lang-yaml';
 import { keymap } from '@codemirror/view';
 import { indentWithTab } from '@codemirror/commands';
+import { linter, lintGutter } from '@codemirror/lint';
+import { load as loadYaml } from 'js-yaml';
 import { onMounted, useTemplateRef } from 'vue';
 
 // This is a Vue Template Ref to the editor container
 const editorRef = useTemplateRef('editorRef');
+
+// Parses the editor content and handles errors for linting
+function yamlLinter() {
+  return linter((view) => {
+    const diagnostics = [];
+    try {
+      // I couldn't get the `onWarning` callback to work, so currently only catching one error at a time.
+      loadYaml(view.state.doc.toString());
+    } catch(e) {
+      diagnostics.push({
+        from: e.mark?.position || 0,
+        to: e.mark?.position || 0,
+        severity: 'error',
+        message: e.message,
+      });
+    }
+    return diagnostics;
+  })
+}
 
 // Load up the CodeMirror editor after the component has mounted
 onMounted(() => {
@@ -38,6 +59,8 @@ statement:
     extensions: [
       basicSetup,
       keymap.of([indentWithTab]), // allows TAB key to keep focus and indent
+      yamlLinter(),
+      lintGutter(),
       yaml(),
     ],
   });

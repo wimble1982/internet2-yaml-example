@@ -13,9 +13,11 @@
     "@carbon/vue": "^3.0.25",
     "@codemirror/commands": "^6.8.1",
     "@codemirror/lang-yaml": "^6.1.2",
+    "@codemirror/lint": "^6.8.5",
     "@codemirror/view": "^6.36.5",
     "carbon-components": "^10.58.15",
     "codemirror": "^6.0.1",
+    "js-yaml": "^4.1.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },

@@ -19,6 +19,8 @@ This is the process I went through when building out this project. I began at 10
 5. Implement the YAML editor page with a basic editor setup.
   - Installed a YAML language package for CodeMirror.
   - Added support for tab indentation
+  - Added linting using the `js-yaml` package
+    - The `onWarning` callback function didn't seem to work, so it's only catching one error at a time.
 
 ## Project Setup
 
