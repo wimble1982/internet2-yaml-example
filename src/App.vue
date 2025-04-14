@@ -12,6 +12,8 @@ import AppHeader from './components/AppHeader.vue';
 
 <style lang="css" scoped>
 #main {
+  display: flex;
+  flex-direction: column;
   min-height: calc(100vh - 3rem); /* full height - header margin */
 }
 </style>

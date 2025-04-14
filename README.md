@@ -16,6 +16,8 @@ This is the process I went through when building out this project. I began at 10
     - Created an AppHeader.vue component
 3. Implement AppHeader component using CDS.
 4. Implement Home page.
+5. Implement the YAML editor page with a basic editor setup.
+  - Installed a YAML language package for CodeMirror.
 
 ## Project Setup
 
