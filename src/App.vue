@@ -5,7 +5,9 @@ import AppHeader from './components/AppHeader.vue';
 
 <template>
   <AppHeader />
-  <RouterView />
+  <CvContent id="main">
+    <RouterView />
+  </CvContent>
 </template>
 
 <style lang="css" scoped>
