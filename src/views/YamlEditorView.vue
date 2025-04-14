@@ -1,6 +1,8 @@
 <script setup>
 import { EditorView, basicSetup } from 'codemirror';
 import { yaml } from '@codemirror/lang-yaml';
+import { keymap } from '@codemirror/view';
+import { indentWithTab } from '@codemirror/commands';
 import { onMounted, useTemplateRef } from 'vue';
 
 // This is a Vue Template Ref to the editor container
@@ -34,7 +36,8 @@ statement:
 - description: Statement 3. Accept all other routes
   action: accept`,
     extensions: [
-      basicSetup, 
+      basicSetup,
+      keymap.of([indentWithTab]), // allows TAB key to keep focus and indent
       yaml(),
     ],
   });

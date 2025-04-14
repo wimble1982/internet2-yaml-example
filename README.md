@@ -18,6 +18,7 @@ This is the process I went through when building out this project. I began at 10
 4. Implement Home page.
 5. Implement the YAML editor page with a basic editor setup.
   - Installed a YAML language package for CodeMirror.
+  - Added support for tab indentation
 
 ## Project Setup
 
