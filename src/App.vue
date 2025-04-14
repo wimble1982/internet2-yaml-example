@@ -11,4 +11,7 @@ import AppHeader from './components/AppHeader.vue';
 </template>
 
 <style lang="css" scoped>
+#main {
+  min-height: calc(100vh - 3rem); /* full height - header margin */
+}
 </style>

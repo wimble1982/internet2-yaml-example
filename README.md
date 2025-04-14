@@ -10,10 +10,12 @@ This is the process I went through when building out this project. I began at 10
   - Research [CodeMirror](https://codemirror.net)
   - Research [Carbon Design System](https://carbondesignsystem.com/)
 2. Create the Vue app (`pnpm create vue@latest`) with `Vue Router`
-  - Add Carbon Design System and CodeMirror as dependencies.
+  - Add Carbon Design System (CDS) and CodeMirror as dependencies.
   - Cleaned up the default Vue files into starter files for this project.
     - Setting up the routes
     - Created an AppHeader.vue component
+3. Implement AppHeader component using CDS.
+4. Implement Home page.
 
 ## Project Setup
 

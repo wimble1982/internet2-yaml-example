@@ -3,3 +3,7 @@
 #app {
   font-weight: normal;
 }
+
+.nowrap {
+  white-space: nowrap;
+}
