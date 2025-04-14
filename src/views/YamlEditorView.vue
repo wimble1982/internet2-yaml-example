@@ -4,12 +4,15 @@ import { yaml } from '@codemirror/lang-yaml';
 import { keymap } from '@codemirror/view';
 import { indentWithTab } from '@codemirror/commands';
 import { linter, lintGutter } from '@codemirror/lint';
+import { completeFromList, autocompletion } from '@codemirror/autocomplete';
 import { load as loadYaml } from 'js-yaml';
 import { onMounted, useTemplateRef } from 'vue';
 
 // This is a Vue Template Ref to the editor container
 const editorRef = useTemplateRef('editorRef');
 
+let autocompletions = ['version', 'statement', 'description', 'match', 'prefix', 'scope', 'prefixes', 'action'];
+const yamlCompletionSource = completeFromList(autocompletions);
 // Parses the editor content and handles errors for linting
 function yamlLinter() {
   return linter((view) => {
@@ -26,14 +29,11 @@ function yamlLinter() {
       });
     }
     return diagnostics;
-  })
+  });
 }
 
-// Load up the CodeMirror editor after the component has mounted
-onMounted(() => {
-  const editor = new EditorView({
-    parent: editorRef.value,
-    doc: `version: 1
+/* Sample YAML:
+version: 1
 statement:
 - description: Statement 1. Drop default routes
   match:
@@ -55,12 +55,21 @@ statement:
   action: drop
 
 - description: Statement 3. Accept all other routes
-  action: accept`,
+  action: accept
+*/
+
+// Load up the CodeMirror editor after the component has mounted
+onMounted(() => {
+  const editor = new EditorView({
+    parent: editorRef.value,
     extensions: [
       basicSetup,
       keymap.of([indentWithTab]), // allows TAB key to keep focus and indent
       yamlLinter(),
       lintGutter(),
+      autocompletion({
+        override: [yamlCompletionSource],
+      }),
       yaml(),
     ],
   });
