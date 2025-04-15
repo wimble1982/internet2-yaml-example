@@ -17,6 +17,7 @@ This is the process I went through when building out this project. I began at 10
 2. Created the Vue app (`npm create vue@latest`) with `Vue Router`
     - Added Carbon Design System (CDS) and CodeMirror 6 as dependencies.
     - Cleaned up the default Vue files into starter files for this project.
+      - I wouldn't normally use global CSS files for such a small app, but I wanted to show a little bit of structure if this were part of something larger.
       - Set up the routes (`/` and `/yaml-editor`)
       - Created an AppHeader.vue component
 3. Implemented AppHeader component using CDS.
@@ -33,8 +34,9 @@ This is the process I went through when building out this project. I began at 10
     - Added some basic autocomplete suggestions.
       - I used the YAML in the wireframe as a guide for the suggestions. I would more likely use an expected schema to provide better autocomplete suggestions.
       - I'm also considering looking into making it dynamic, based on past values entered into the editor, but without knowing a schema, that could be much more complex.
+6. Fine-tuning of some CSS and some comments.
 
-Total Dev Time: About 5 hours.
+Total Dev Time: About 6.5 hours.
 There was some additional time I didn't count just learning the basics of CodeMirror and Carbon Design System.
 
 ## Known Issues / Enhancements

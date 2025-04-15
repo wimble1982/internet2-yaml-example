@@ -22,7 +22,7 @@ function goToEditor() {
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: calc(100vh - 7rem); /* full height - header margin - #main padding */
+  flex: 1;
 }
 .home > div {
   display: flex;

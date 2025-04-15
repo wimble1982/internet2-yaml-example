@@ -11,6 +11,7 @@ import { onMounted, useTemplateRef } from 'vue';
 // This is a Vue Template Ref to the editor container
 const editorRef = useTemplateRef('editorRef');
 
+// Create list of autocompletions. Ideally this would be based on an expected schema
 let autocompletions = ['version', 'statement', 'description', 'match', 'prefix', 'scope', 'prefixes', 'action'];
 const yamlCompletionSource = completeFromList(autocompletions);
 // Parses the editor content and handles errors for linting
@@ -20,7 +21,7 @@ function yamlLinter() {
     try {
       // I couldn't get the `onWarning` callback to work, so currently only catching one error at a time.
       loadYaml(view.state.doc.toString());
-    } catch(e) {
+    } catch (e) {
       diagnostics.push({
         from: e.mark?.position || 0,
         to: e.mark?.position || 0,
@@ -84,11 +85,18 @@ onMounted(() => {
 </template>
 
 <style lang="css" scoped>
+.editor {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 .editor-container {
+  display: flex;
+  flex: 1;
   margin-top: 20px;
 }
-.editor-container :deep(.cm-content),
-.editor-container :deep(.cm-gutter) {
-  min-height: 300px;
+.editor-container :deep(.cm-editor) {
+  flex: 1;
+  width: 100%;
 }
 </style>

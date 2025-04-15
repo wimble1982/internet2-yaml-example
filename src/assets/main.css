@@ -1,9 +1,6 @@
 @import './base.css';
 
-#app {
-  font-weight: normal;
-}
-
+/* Global Styles */
 .nowrap {
   white-space: nowrap;
 }

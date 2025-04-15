@@ -9,4 +9,3 @@ const app = createApp(App);
 app.use(CarbonComponentsVue);
 app.use(router);
 app.mount('#app');
-
