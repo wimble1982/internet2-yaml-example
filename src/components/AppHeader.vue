@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 
 // The `active` property in `CvHeaderMenuItem` doesn't appear to be connected to vue-router.
 // This isn't ideal, but I wanted to show the active page on the menu.
-// Get the current route to show toggle the `active` property.
+// Get the current route to toggle the `active` property.
 const route = useRoute();
 const isHome = computed(() => route.name === 'home');
 const isEditor = computed(() => route.name === 'yaml-editor');
